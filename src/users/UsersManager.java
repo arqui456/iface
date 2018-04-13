@@ -7,6 +7,8 @@ import java.util.Scanner;
 import community.Communities;
 
 import messages.Message;
+import messages.Received;
+import messages.Send;
 import enums.SR;
 
 
@@ -107,8 +109,7 @@ public class UsersManager {
 		}
 		
 		if(asw == 2){
-			// TODO communies messaging system
-			
+			// TODO communities messaging system	
 		}
 		else {
 			
@@ -116,20 +117,22 @@ public class UsersManager {
 			name = input.nextLine();
 			System.out.println("Type in your message:");
 			String text = input.nextLine();
+			Message message = new Message();
+			Message message1 = new Message();
 			
 			for(User currentUser: users){
 				if(name.equals(currentUser.getName())){
 					found = true;
 					System.out.println("User found, message sent!");
-					currentUser.getMessages().add(new Message(text, SR.RECEIVED, users.get(currentUserId).getName()));
-					//System.out.println(currentUser.getMessages().get(0));
+					message = new Received(text, users.get(currentUserId).getName());
+					currentUser.getMessages().add(message);
 				}
 			}
 			if(!found) System.out.println("User not found!");
 			
-			users.get(currentUserId).addMessage(new Message(text, SR.SEND, name));
+			message1 = new Send(text, users.get(currentUserId).getName());
+			users.get(currentUserId).addMessage(message1);
 			
-			//System.out.println(users.get(currentUserId).getMessages().get(0));	
 		}
 	}
 	

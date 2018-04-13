@@ -2,8 +2,6 @@ package users;
 
 import java.util.Scanner;
 
-import enums.Handlers;
-
 public class UserInputHandler {
 
 	Scanner input = new Scanner(System.in);
@@ -22,7 +20,4 @@ public class UserInputHandler {
 		}
 		return choice;
 	}
-	
-	
-
 }

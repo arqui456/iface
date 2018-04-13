@@ -4,7 +4,6 @@ import users.UsersManager;
 
 public class Iface {
 	 
-	
 	public static void main(String[] args) {
 		
 		UsersManager manager = new UsersManager();
